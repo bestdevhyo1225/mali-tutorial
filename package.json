@@ -1,0 +1,28 @@
+{
+  "name": "mali-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.4",
+    "grpc": "^1.24.2",
+    "grpc-caller": "^0.13.0",
+    "grpc-create-error": "^1.1.0",
+    "lodash": "^4.17.15",
+    "mali": "^0.20.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "dotenv-cli": "^3.1.0"
+  },
+  "scripts": {
+    "dynamic:grpc-server": "babel-node ./src/index.js",
+    "dynamic:grpc-caller": "babel-node ./src/infrastructure/grpc-caller/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
