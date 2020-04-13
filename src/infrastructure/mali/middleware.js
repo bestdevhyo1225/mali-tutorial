@@ -8,9 +8,7 @@ export const checkCancelled = call => {
 export const createError = (ctx, error) => {
   if (error.message === "cancelled") {
     const { reqeustId } = ctx.metadata;
-    throw createGRPCError(`Cancelled: ${reqeustId}`, 0, {
-      status: "CANCELLED"
-    });
+    throw createGRPCError(`Cancelled: ${reqeustId}`, 0, { status: "CANCELLED" });
   }
   throw createGRPCError("Exception", 2, { status: "INTERNAL" });
 };
