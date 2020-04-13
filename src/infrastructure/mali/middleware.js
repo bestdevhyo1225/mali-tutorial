@@ -1,3 +1,4 @@
+import errorMessage from "../../common/message/error";
 import createGRPCError from "grpc-create-error";
 
 export const checkCancelled = call => {
@@ -8,7 +9,9 @@ export const checkCancelled = call => {
 export const createError = (ctx, error) => {
   if (error.message === "cancelled") {
     const { reqeustId } = ctx.metadata;
-    throw createGRPCError(`Cancelled: ${reqeustId}`, 0, { status: "CANCELLED" });
+    const { code, status } = errorMessage.E000;
+    throw createGRPCError(`Cancelled: ${reqeustId}`, code, { status });
   }
-  throw createGRPCError("Exception", 2, { status: "INTERNAL" });
+  const { code, status } = errorMessage.E002;
+  throw createGRPCError("Exception", code, { status });
 };
