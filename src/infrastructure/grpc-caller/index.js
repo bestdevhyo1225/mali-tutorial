@@ -1,8 +1,9 @@
+import { port, ip } from "../../common/config";
 import caller from "grpc-caller";
 import path from "path";
 
 const PROTO_PATH = path.resolve(__dirname, "../idl/helloworld.proto");
-const client = caller("127.0.0.1:50001", PROTO_PATH, "Greeter");
+const client = caller(`${ip}:${port}`, PROTO_PATH, "Greeter");
 
 async function grpcClient() {
   const name = "Jang Hyo Seok";
